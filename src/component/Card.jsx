@@ -17,10 +17,10 @@ const Card = ({ item }) => {
         <Pressable onPress={()=> selectPokemon()}>
             <View style={Styles.card}>
                 <Image
-                    width={80}
-                    height={80}
+                    width={100}
+                    height={100}
                     source={{ uri: `${item?.image}` }} />
-                <Text>{item?.name}</Text>
+                <Text style={Styles.text}>{item?.name}</Text>
             </View>
         </Pressable>
     )

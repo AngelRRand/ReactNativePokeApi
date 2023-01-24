@@ -7,6 +7,7 @@ import {
   Image
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import Styles from '../styles/CardStyles';
 
 const Favorite = () => {
   const [favorites, setFavorites] = useState([])
@@ -26,16 +27,19 @@ const Favorite = () => {
       <StatusBar />
       {
         favorites.length === 0 ? (
-          <Text>No tienes un pokemon favorito</Text>
+          <Text style={Styles.title}>No tienes un pokemon favorito</Text>
         ) : (
-          <View>
-            <Text>TU POKEMON FAVORITO ES:</Text>
-            <Image
-              width={160}
-              height={160}
-              source={{ uri: `${favorites.image}` }}
-            />
-            <Text>{favorites.name}</Text>
+          <View >
+            <Text style={Styles.title}>TU POKEMON FAVORITO ES:</Text>
+            <View style={Styles.cardFavorite}>
+              <Image
+                width={360}
+                height={360}
+                source={{ uri: `${favorites.image}` }}
+              />
+              <Text style={Styles.name}>{favorites.name}</Text>
+
+            </View>
           </View>
         )
       }

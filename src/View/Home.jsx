@@ -7,6 +7,7 @@ import {
 import axios from "axios";
 import Card from '../component/Card';
 import Styles from '../styles/CardStyles';
+import Loading from '../component/Loading';
 const Home = () => {
 
     const [poke, setPoke] = useState([])
@@ -37,7 +38,7 @@ const Home = () => {
                   speed: p.data.stats[5].base_stat,
                   height: p.data.height,
                   weight: p.data.weight,
-                  image: p.data.sprites.other.dream_world.front_default,
+                  image: p.data.sprites.front_default,
                   types: p.data.types.map((t) => t.type.name),
                 };
                 setPoke(prev => [...prev, pokemon])
@@ -56,7 +57,7 @@ const Home = () => {
       <StatusBar />
       {
         poke.length === 0 ? (
-          <></>
+          <Loading/>
         ) : (
           <FlatList
             data={poke}
